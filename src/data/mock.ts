@@ -7,8 +7,13 @@ export const responseData: AnalysisResponse = {
       domain: {
         points: 2,
         reasons: {
-          bad: null,
-          good: null
+          bad: [
+            "This Domain is bad.",
+            "This domain is a scam."
+          ],
+          good: [
+            "This domain quite good."
+          ]
         }
       },
       certificate: {
