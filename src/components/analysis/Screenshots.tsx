@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Screenshots({ screenshots }: { screenshots: Screenshot[] }) {
   return (
     <div className="flex flex-col items-center border-b-2">
-      <h2 className="text-2xl font-semibold w-full align-left">
+      <h2 className="text-2xl font-semibold w-full align-left tracking-wider py-4">
         Screenshots
       </h2>
       <div className="flex justify-center gap-4 py-8">
