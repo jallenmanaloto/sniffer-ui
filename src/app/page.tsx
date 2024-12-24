@@ -1,3 +1,4 @@
+import Analysis from "@/components/analysis";
 import Header from "@/components/header"
 import Lookup from "@/components/lookup/Lookup";
 
@@ -7,6 +8,7 @@ export default function Home() {
       <main className="container mx-auto px-8 lg:px-36">
         <Header />
         <Lookup />
+        <Analysis />
       </main>
     </div>
   );
