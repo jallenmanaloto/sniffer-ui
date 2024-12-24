@@ -7,6 +7,8 @@ const Finding = ({ topic, reasons }: { topic: string, reasons: Reasons }) => {
       <h2 className="text-lg text-primary/80 font-semibold tracking-wider py-2">
         {topic}
       </h2>
+
+      {/** Mapping of Good Reasons */}
       {reasons.good !== null ? reasons.good.map((reason, key: number) => {
         return (
           <div key={key} className="reason-container flex items-center gap-2">
@@ -22,7 +24,7 @@ const Finding = ({ topic, reasons }: { topic: string, reasons: Reasons }) => {
         )
       }) : ""}
 
-
+      {/** Mapping of Bad Reasons */}
       {reasons.bad !== null ? reasons.bad.map((reason, key: number) => {
         return (
           <div key={key} className="reason-container flex items-center gap-2">
