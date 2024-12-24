@@ -2,6 +2,7 @@ import { RiskLevel, Screenshot } from "@/lib/types";
 import Screenshots from "./Screenshots";
 import { responseData } from "@/data/mock";
 import Summary from "./Summary";
+import TopicFindings from "./TopicFindings";
 
 export default function Analysis() {
   // const { riskLevel, screenshots, topicFinding } = findings;
@@ -15,6 +16,7 @@ export default function Analysis() {
     <div className="">
       <Summary riskLevel={findings.riskLevel as RiskLevel} />
       <Screenshots screenshots={screenshots} />
+      <TopicFindings topicFinding={findings.topicFinding} />
     </div>
   )
 }
