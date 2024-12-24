@@ -8,7 +8,7 @@ export default function Lookup() {
         className="col-span-4 sm:col-span-3 border-gray-300"
         placeholder="Paste URL here"
       />
-      <Button className="col-span-4 sm:col-span-1">
+      <Button className="col-span-4 sm:col-span-1 dark:bg-teal-500/75 dark:hover:bg-teal-700 dark:text-slate-200">
         <h2 className="text-lg">
           Lookup
         </h2>
