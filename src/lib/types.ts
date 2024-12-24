@@ -1,3 +1,8 @@
+export type AnalysisResponse = {
+  databaseMatch: boolean
+  findings: Findings
+}
+
 export type Findings = {
   topicFinding: TopicFinding
   riskLevel: string
@@ -5,9 +10,11 @@ export type Findings = {
 }
 
 export type Reasons = {
-  good: string[]
-  bad: string[]
+  good: string[] | null
+  bad: string[] | null
 }
+
+export type RiskLevel = "LOW" | "MODERATE" | "HIGH"
 
 export type Screenshot = {
   image: string
@@ -24,4 +31,3 @@ export type TopicFinding = {
   content: StrategyFinding
   hiddenInput: StrategyFinding
 }
-
