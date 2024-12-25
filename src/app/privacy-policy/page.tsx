@@ -1,13 +1,13 @@
+import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 export default function PrivacyPolicy() {
   return (
     <div className="w-screen h-screen dark:bg-slate-900">
       <Header />
-      <main className="container mx-auto px-8 lg:px-36">
+      <main className="container mx-auto px-8 lg:px-36 pb-24">
         <h1 className="text-3xl font-bold py-8">Privacy Policy</h1>
         <div className="flex flex-col gap-5">
-          <p>Last updated: December 25, 2024</p>
           <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
           <p>At BaitSniffer, we are committed to protecting your privacy. This Privacy Policy explains how we handle your information when you use our Service.</p>
         </div>
@@ -30,6 +30,7 @@ export default function PrivacyPolicy() {
         <p className="py-4">Last updated: December 25, 2024</p>
         <p>If you have any questions about this Privacy Policy, please contact us at <b>support@baitsniffer.com</b>.</p>
       </main>
+      <Footer />
     </div>
   )
 }
