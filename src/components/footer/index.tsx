@@ -15,6 +15,10 @@ export default function Footer() {
       name: "Terms of Use",
       route: "/terms-of-use"
     },
+    {
+      name: "EULA",
+      route: "/eula"
+    },
   ];
   return (
     <footer className="border-t-2 py-8">
@@ -31,7 +35,7 @@ export default function Footer() {
             })}
           </div>
         </div>
-        <div className="copyright flex justify-center">
+        <div className="copyright flex justify-center py-3">
           <h4>© BaitSniffer 2024</h4>
         </div>
       </div>
