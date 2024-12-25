@@ -45,7 +45,7 @@ const Finding = ({ topic, reasons }: { topic: string, reasons: Reasons }) => {
 
 export default function TopicFindings({ topicFinding }: { topicFinding: TopicFinding }) {
   return (
-    <div className="py-8 border-b-2">
+    <div className="py-8">
       <div className="finding leading-7">
         <h1 className="text-2xl font-semibold py-4 tracking-wider">
           Findings
