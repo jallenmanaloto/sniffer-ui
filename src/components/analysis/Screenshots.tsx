@@ -32,14 +32,14 @@ export default function Screenshots({ screenshots }: { screenshots: Screenshot[]
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="py-8">
+              <DialogContent className="flex w-[300px] justify-center p-0">
                 <VisuallyHidden>
                   <DialogTitle>
                     Screenshot Image
                   </DialogTitle>
                 </VisuallyHidden>
                 <div className="flex justify-center w-full h-[600px] overflow-auto">
-                  <div className="relative w-[200px] h-full">
+                  <div className="relative w-full h-full">
                     <Image
                       src={imageSrc}
                       alt="screenshot-image"
