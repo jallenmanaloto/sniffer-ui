@@ -9,10 +9,11 @@ export default function Screenshots({ screenshots }: { screenshots: Screenshot[]
       </h2>
       <div className="flex justify-center gap-4 py-8">
         {screenshots.map((screenshot, idx: number) => {
+          const imageSrc = `https://ik.imagekit.io/iakg6rt33o/${screenshot.image}`;
           return (
             <Image
               key={idx}
-              src={screenshot.image}
+              src={imageSrc}
               width={50}
               height={10}
               alt="screenshot-image"
