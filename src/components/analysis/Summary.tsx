@@ -7,7 +7,7 @@ export default function Summary({ riskLevel }: { riskLevel: RiskLevel }) {
 
   return (
     <div className="py-8 border-b-2">
-      <div className="summary leading-7">
+      <div className="summary leading-5">
         <h1 className="text-2xl font-semibold py-4 tracking-wider">
           Summary
         </h1>
