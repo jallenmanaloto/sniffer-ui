@@ -31,6 +31,9 @@ export default function Footer() {
             })}
           </div>
         </div>
+        <div className="copyright flex justify-center">
+          <h4>© BaitSniffer 2024</h4>
+        </div>
       </div>
     </footer>
   )
