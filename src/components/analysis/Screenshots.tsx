@@ -7,17 +7,21 @@ export default function Screenshots({ screenshots }: { screenshots: Screenshot[]
       <h2 className="text-2xl font-semibold w-full align-left tracking-wider py-4">
         Screenshots
       </h2>
-      <div className="flex justify-center gap-4 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-7 py-8">
         {screenshots.map((screenshot, idx: number) => {
           const imageSrc = `https://ik.imagekit.io/iakg6rt33o/${screenshot.image}`;
           return (
-            <Image
-              key={idx}
-              src={imageSrc}
-              width={50}
-              height={10}
-              alt="screenshot-image"
-            />
+            <div key={idx} className="col-span-1 py-2">
+              <div className="relative w-48 h-[100px]">
+                <Image
+                  src={imageSrc}
+                  alt="screenshot-image"
+                  fill
+                  className="cursor-pointer"
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+            </div>
           )
         })}
       </div>
