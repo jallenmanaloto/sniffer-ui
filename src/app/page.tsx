@@ -9,6 +9,7 @@ import { responseData } from "@/data/mock";
 import { useHealthCheck } from "@/data/api/hooks";
 import { useAnalysis } from "@/lib/store";
 import { Info } from "lucide-react";
+import Loading from "@/components/loading/Loading";
 
 function UnavailableService() {
   return (
@@ -23,7 +24,7 @@ function UnavailableService() {
 
 export default function Home() {
   const { data: health } = useHealthCheck();
-  const { analysisResponse } = useAnalysis();
+  const { analysisResponse, isAnalyzing } = useAnalysis();
 
   return (
     <div className="flex flex-col min-h-screen w-screen dark:bg-slate-900">
@@ -32,7 +33,11 @@ export default function Home() {
         <Disclaimer />
         <Lookup available={health} />
         {health ? <UnavailableService /> : null}
-        {analysisResponse === null ? null : <Analysis response={responseData} />}
+        {analysisResponse === null ? null : isAnalyzing ? (
+          <Loading />
+        ) : (
+          <Analysis response={responseData} />
+        )}
       </main>
       <Footer />
     </div>
