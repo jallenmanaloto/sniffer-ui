@@ -11,10 +11,13 @@ export async function analyze(urls: string[]) {
 
 export async function healthCheck() {
   const healthCheckEndpoint = process.env.NEXT_PUBLIC_HEALTH_CHECK_ENDPOINT || "";
-  const res = await axios.get(healthCheckEndpoint);
-  if (res.status === 200) {
-    return false;
-  } else {
+
+  try {
+    const res = await axios.get(healthCheckEndpoint);
+    if (res.status === 200) {
+      return false;
+    }
+  } catch (err) {
     return true;
   }
 }
