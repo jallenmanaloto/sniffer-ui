@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { MoonStar, Sun } from 'lucide-react';
 
 export default function DarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
