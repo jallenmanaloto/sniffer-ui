@@ -11,6 +11,7 @@ import { useAnalysis, useService } from "@/lib/store";
 import { Info } from "lucide-react";
 import Loading from "@/components/loading/Loading";
 import { useEffect } from "react";
+import { useIsMutating } from "@tanstack/react-query";
 
 function UnavailableService() {
   return (
@@ -27,8 +28,10 @@ function UnavailableService() {
 
 export default function Home() {
   const { data: health } = useHealthCheck();
-  const { analysisResponse, isAnalyzing } = useAnalysis();
   const { notAvailable, setNotAvailable } = useService();
+  const { analysisResponse } = useAnalysis()
+
+  const isAnalyzing = useIsMutating({ mutationKey: ['analyze'] })
 
   useEffect(() => {
     if (health !== undefined || health) {
@@ -45,11 +48,12 @@ export default function Home() {
         <Disclaimer />
         <Lookup />
         {notAvailable ? <UnavailableService /> : null}
-        {analysisResponse === null ? null : isAnalyzing ? (
+        {isAnalyzing ? (
           <Loading />
-        ) : (
-          <Analysis response={responseData} />
-        )}
+        ) : analysisResponse === null
+          ? null
+          : <Analysis response={analysisResponse} />
+        }
       </main>
       <Footer />
     </div>
