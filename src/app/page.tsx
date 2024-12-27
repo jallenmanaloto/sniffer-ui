@@ -7,9 +7,10 @@ import Header from "@/components/header"
 import Lookup from "@/components/lookup/Lookup";
 import { responseData } from "@/data/mock";
 import { useHealthCheck } from "@/data/api/hooks";
-import { useAnalysis } from "@/lib/store";
+import { useAnalysis, useService } from "@/lib/store";
 import { Info } from "lucide-react";
 import Loading from "@/components/loading/Loading";
+import { useEffect } from "react";
 
 function UnavailableService() {
   return (
@@ -27,14 +28,23 @@ function UnavailableService() {
 export default function Home() {
   const { data: health } = useHealthCheck();
   const { analysisResponse, isAnalyzing } = useAnalysis();
+  const { notAvailable, setAvailable } = useService();
+
+  useEffect(() => {
+    if (health !== undefined || health) {
+      setAvailable(health);
+    } else {
+      setAvailable(true);
+    }
+  }, [health]);
 
   return (
     <div className="flex flex-col min-h-screen w-screen dark:bg-slate-900">
       <Header />
       <main className="container flex-grow mx-auto px-8 lg:px-36">
         <Disclaimer />
-        <Lookup available={health} />
-        {health ? <UnavailableService /> : null}
+        <Lookup />
+        {notAvailable ? <UnavailableService /> : null}
         {analysisResponse === null ? null : isAnalyzing ? (
           <Loading />
         ) : (
