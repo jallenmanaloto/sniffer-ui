@@ -21,6 +21,7 @@ export type Screenshot = {
 }
 
 export type StrategyFinding = {
+  topic: string
   points: number
   reasons: Reasons
 }
