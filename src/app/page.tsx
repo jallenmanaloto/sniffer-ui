@@ -15,8 +15,8 @@ function UnavailableService() {
   return (
     <div className="w-full flex justify-center">
       <div className="flex gap-2 py-2 lg:w-3/4">
-        <Info className="text-red-400 h-5 w-5" />
-        <p className="text-red-400">
+        <Info className="text-red-400 dark:text-red-400/80 h-5 w-5" />
+        <p className="text-red-400 dark:text-red-400/80">
           This service is currently not available.
         </p>
       </div>
