@@ -10,7 +10,7 @@ export default function Lookup({ available }: { available: boolean | undefined }
           placeholder="Paste URL here"
         />
         <Button
-          className="col-span-4 sm:col-span-1 dark:bg-teal-500/75 dark:hover:bg-teal-700 dark:text-slate-200"
+          className="col-span-4 sm:col-span-1 bg-teal-700 hover:bg-teal-500/75 text-slate-200 dark:bg-teal-500/75 dark:hover:bg-teal-700 dark:text-slate-200"
           disabled={available}
         >
           <h2 className="text-lg">
