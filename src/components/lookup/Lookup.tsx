@@ -8,7 +8,9 @@ import { Input } from "../ui/input";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useService } from "@/lib/store";
+import { useAnalysis, useService } from "@/lib/store";
+import { useAnalyze } from "@/data/api/hooks";
+import { useEffect } from "react";
 
 const FormSchema = z.object({
   urls: z.string().url().min(1, {
@@ -17,6 +19,8 @@ const FormSchema = z.object({
 });
 
 export default function Lookup() {
+  const { analysisResponse, setAnalysisResponse } = useAnalysis();
+
   const { notAvailable } = useService();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -25,9 +29,19 @@ export default function Lookup() {
     }
   });
 
-  function onSubmit(data: { urls: string }) {
-    console.log({ data: data.urls })
+  const analyze = useAnalyze();
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    const urls = [values.urls];
+    analyze.mutate(urls);
+
+    form.reset();
   }
+
+  useEffect(() => {
+    if (analyze.isSuccess) {
+      setAnalysisResponse(analyze.data)
+    }
+  }, [analyze.isSuccess])
 
   return (
     <Form {...form}>
