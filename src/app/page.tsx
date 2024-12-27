@@ -5,7 +5,6 @@ import Disclaimer from "@/components/disclaimer";
 import Footer from "@/components/footer";
 import Header from "@/components/header"
 import Lookup from "@/components/lookup/Lookup";
-import { responseData } from "@/data/mock";
 import { useHealthCheck } from "@/data/api/hooks";
 import { useAnalysis, useService } from "@/lib/store";
 import { Info } from "lucide-react";
