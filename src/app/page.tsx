@@ -28,13 +28,13 @@ function UnavailableService() {
 export default function Home() {
   const { data: health } = useHealthCheck();
   const { analysisResponse, isAnalyzing } = useAnalysis();
-  const { notAvailable, setAvailable } = useService();
+  const { notAvailable, setNotAvailable } = useService();
 
   useEffect(() => {
     if (health !== undefined || health) {
-      setAvailable(health);
+      setNotAvailable(health);
     } else {
-      setAvailable(true);
+      setNotAvailable(true);
     }
   }, [health]);
 

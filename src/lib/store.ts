@@ -16,11 +16,11 @@ export const useAnalysis = create<TAnalysisStore>((set) => ({
 }));
 
 export type TServiceStore = {
-  available: boolean;
-  setAvailable: (available: boolean) => void;
+  notAvailable: boolean;
+  setNotAvailable: (notAvailable: boolean) => void;
 }
 
 export const useService = create<TServiceStore>((set) => ({
-  available: true,
-  setAvailable: (available: boolean) => set({ available: available }),
+  notAvailable: true,
+  setNotAvailable: (notAvailable: boolean) => set({ notAvailable: notAvailable }),
 }));
