@@ -21,7 +21,7 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="border-t-2 py-4">
+    <footer className="border-t-2 py-4 bg-slate-900/90 text-slate-100">
       <div className="footer-wrapper container mx-auto px-8 lg:px-36">
         <div className="sm:flex sm:gap-x-32 sm:justify-center sm:items-center">
           <div className="quick-links">
@@ -30,7 +30,7 @@ export default function Footer() {
               {links.map((link: Link, idx: number) => {
                 return (
                   <Link key={idx} href={link.route}>
-                    <h4 className="text-primary/80 cursor-pointer">{link.name}</h4>
+                    <h4 className="text-slate-100/70 text-sm cursor-pointer">{link.name}</h4>
                   </Link>
                 )
               })}
