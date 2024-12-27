@@ -8,16 +8,21 @@ import { Input } from "../ui/input";
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useService } from "@/lib/store";
 
 const FormSchema = z.object({
-  urls: z.string().min(1, {
+  urls: z.string().url().min(1, {
     message: "URL cannot be empty."
   }),
 });
 
-export default function Lookup({ available }: { available: boolean | undefined }) {
+export default function Lookup() {
+  const { notAvailable } = useService();
   const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema)
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      urls: ""
+    }
   });
 
   function onSubmit(data: { urls: string }) {
@@ -31,7 +36,7 @@ export default function Lookup({ available }: { available: boolean | undefined }
           control={form.control}
           name="urls"
           render={({ field }) => (
-            <FormItem className="flex flex-col items-center justify-center">
+            <FormItem className="flex flex-col lg:items-center lg:justify-center">
               <FormControl>
                 <div className="lookup-container grid grid-cols-4 gap-y-3 gap-x-5 lg:w-3/4">
                   <Input
@@ -41,7 +46,7 @@ export default function Lookup({ available }: { available: boolean | undefined }
                   />
                   <Button
                     className="col-span-4 sm:col-span-1 bg-teal-700 hover:bg-teal-500/75 text-slate-200 dark:bg-teal-500/75 dark:hover:bg-teal-700 dark:text-slate-200"
-                    disabled={available}
+                    disabled={notAvailable}
                   >
                     <h2 className="text-lg">
                       Lookup
@@ -49,7 +54,9 @@ export default function Lookup({ available }: { available: boolean | undefined }
                   </Button>
                 </div>
               </FormControl>
-              <FormMessage />
+              <div className="w-full container lg:w-3/4 p-0">
+                <FormMessage />
+              </div>
             </FormItem>
           )}
         />
