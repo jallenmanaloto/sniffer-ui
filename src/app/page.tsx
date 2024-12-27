@@ -13,11 +13,13 @@ import Loading from "@/components/loading/Loading";
 
 function UnavailableService() {
   return (
-    <div className="flex gap-2 py-5">
-      <Info className="text-red-200 h-5 w-5" />
-      <p className="text-red-200">
-        This service is currently not available.
-      </p>
+    <div className="w-full flex justify-center">
+      <div className="flex gap-2 py-2 lg:w-3/4">
+        <Info className="text-red-400 h-5 w-5" />
+        <p className="text-red-400">
+          This service is currently not available.
+        </p>
+      </div>
     </div>
   )
 }
