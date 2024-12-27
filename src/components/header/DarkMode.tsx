@@ -34,7 +34,7 @@ export default function DarkMode() {
     <div className="mode-container">
       {isDarkMode
         ? <MoonStar color="#14b8a6" className="cursor-pointer" onClick={toggleDarkMode} />
-        : <Sun className="cursor-pointer" onClick={toggleDarkMode} />
+        : <Sun className="text-teal-700 cursor-pointer" onClick={toggleDarkMode} />
       }
     </div>
   )
