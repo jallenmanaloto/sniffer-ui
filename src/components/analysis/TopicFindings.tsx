@@ -52,25 +52,25 @@ export default function TopicFindings({ topicFinding }: { topicFinding: TopicFin
         </h1>
       </div>
       {/** Domain Topic */}
-      {topicFinding.domain !== null
+      {topicFinding.domain.topic !== ""
         ? <Finding topic="Domain" reasons={topicFinding.domain.reasons} />
         : null
       }
 
       {/** Content Topic */}
-      {topicFinding.content !== null
+      {topicFinding.content.topic !== ""
         ? <Finding topic="Content" reasons={topicFinding.content.reasons} />
         : null
       }
 
       {/** Certificate Topic */}
-      {topicFinding.certificate !== null
+      {topicFinding.certificate.topic !== ""
         ? <Finding topic="Certificate" reasons={topicFinding.certificate.reasons} />
         : null
       }
 
       {/** Hidden Inputs Topic */}
-      {topicFinding.hiddenInput !== null
+      {topicFinding.hiddenInput.topic !== ""
         ? <Finding topic="Hidden Inputs" reasons={topicFinding.hiddenInput.reasons} />
         : null
       }
