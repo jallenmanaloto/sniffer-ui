@@ -9,6 +9,7 @@ import { DialogTitle } from "@radix-ui/react-dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export default function Screenshots({ screenshots }: { screenshots: Screenshot[] }) {
+  if (screenshots === undefined || screenshots === null) return
   return (
     <div className="flex flex-col items-center border-b-2">
       <h2 className="text-2xl font-semibold w-full align-left tracking-wider py-4">
